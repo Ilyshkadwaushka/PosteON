@@ -1,0 +1,46 @@
+{% load custom_tags %}
+
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand"
+    {% if user.is_authenticated %}
+    href="{% url 'social:post_list' %}"
+    {% else %}
+    href="{% url 'landing:index' %}"
+    {% endif %}
+    style="text-decoration: none;"
+    ><i class="fas fa-angle-double-right"></i> Posteon</a>
+
+    {% if user.is_authenticated %}
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      </ul>
+      <form class="d-flex" method="GET" action="{% url 'social:profile_search' %}">
+        <div class="input-group">
+          <span class="input-group-text" id="basic-addon1">@</span>
+          <input type="text" class="form-control" placeholder="Пользователь" aria-label="Username" aria-describedby="basic-addon1" name="query" value="{{ request.GET.query }}">
+          <button class="remove-default-btn" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </form>
+
+      <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-dark not-link-decoration" data-bs-toggle="dropdown" role="buton" aria-expanded="false"><i class="fas fa-user"></i></a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="{% url 'social:profile' request.user.profile.pk %}">Профиль</a></li>
+          <li><a class="dropdown-item" href="{% url 'account_logout' %}">Выйти</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="nav-item">
+        {% show_notifications %}
+    </div>
+    {% endif %}
+  </div>
+</nav>
+</div>
