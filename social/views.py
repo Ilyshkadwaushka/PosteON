@@ -197,8 +197,8 @@ class AddLike(LoginRequiredMixin, View):
         post = Post.objects.get(pk=pk)
 
         is_disliked = False
-        for like in post.likes.all():
-            if like == request.user:
+        for dislike in post.dislikes.all():
+            if dislike == request.user:
                 is_disliked = True
                 break
 
