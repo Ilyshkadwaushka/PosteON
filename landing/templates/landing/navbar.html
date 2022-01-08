@@ -3,7 +3,7 @@
 <div class="container">
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" id="navbar-toggler" onclick="removeNotificationButton()" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand"
@@ -37,7 +37,7 @@
         </ul>
       </div>
     </div>
-    <div class="nav-item">
+    <div class="nav-item" id="notification-button">
         {% show_notifications %}
     </div>
     {% endif %}

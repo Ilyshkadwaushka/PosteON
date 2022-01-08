@@ -18,6 +18,16 @@ function showNotifications() {
     }
 }
 
+function removeNotificationButton() {
+    const notification_button = document.getElementById('notification-button');
+    const navbar_toggler = document.getElementById('navbar-toggler');
+    if (navbar_toggler.classList.contains('collapsed')) {
+        notification_button.classList.remove('d-none');
+    } else {
+        notification_button.classList.add('d-none');
+    }
+}
+
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
