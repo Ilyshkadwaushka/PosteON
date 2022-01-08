@@ -166,11 +166,14 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+#S3 BUCKETS CONFIG
+
 AWS_ACCESS_KEY_ID = 'AKIAQCHIVDKS23COSGEX'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'posteon-image-bucket'
 AWS_S3_SIGNATURE_VERSION = 's3v4'
 AWS_S3_REGION_NAME = 'eu-west-2'
+AWS_S3_ADDRESSING_STYLE = "virtual"
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
