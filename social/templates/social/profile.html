@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %} Лента {% endblock %}
+{% block title %} Профиль {% endblock %}
 
 {% block content %}
 <div class="container">
@@ -28,7 +28,7 @@
                         <span>
                             {% if request.user == user %}
                                 <a class="edit-button-color" href="{% url 'social:profile_edit' profile.pk %}">
-                                    <i class="far fa-edit"></i>
+                                    <i class="far fa-edit fa-xs"></i>
                                 </a>
                             {% endif %}
                         </span>
